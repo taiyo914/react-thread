@@ -14,12 +14,12 @@ function App() {
       <div className="Navi">
         <div className="wrapper">
           <Link to="/">Home</Link>
-          <Link to="/newthread">New Thread</Link>
+          <Link to="/threads/new">New Thread</Link>
         </div>
       </div>
       <Routes>
         <Route path="/" element={<Home posts={posts} setPosts={setPosts}/>} />
-        <Route path="/newthread" element={<NewThread posts={posts} setPosts={setPosts}/>} />
+        <Route path="/threads/new" element={<NewThread posts={posts} setPosts={setPosts}/>} />
       </Routes>
     </BrowserRouter>
   );
