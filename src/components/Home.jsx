@@ -15,9 +15,10 @@ const Home = ({posts, setPosts}) => {
 
   return (
     <>
-    <ul className = "listBox">
+    <h1 className="title">Thraeds</h1>
+    <ul className = "threadContainer">
       {posts.map(post => (
-        <li key={post.id} className ="listItem">
+        <li key={post.id} className ="threadItem">
             {post.title}
         </li>
       ))}

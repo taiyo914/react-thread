@@ -12,8 +12,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="Navi">
-        <Link to="/">Home</Link>
-        <Link to="/newthread">New Thread</Link>
+        <div className="wrapper">
+          <Link to="/">Home</Link>
+          <Link to="/newthread">New Thread</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/" element={<Home posts={posts} setPosts={setPosts}/>} />

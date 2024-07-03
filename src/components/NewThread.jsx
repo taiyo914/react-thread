@@ -33,18 +33,20 @@ const NewThread = ({posts, setPosts}) => {
 
   return (
     <div className="newThread content">
-      <h1>新しいスレッドを作りましょう</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className = "newThreadTitle">Create a new Thread</h1>
+      <form onSubmit={handleSubmit} className="form">
         <label>
-          Title:
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            className ="textBox"
+            placeholder="Enter the Title of the new Thread"
           />
         </label>
-        <button type="submit">Create</button>
+        <br/>
+        <button type="submit" className="button">Create</button>
       </form>
     </div>
   );

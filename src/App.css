@@ -1,16 +1,93 @@
-.header{
-  background-color: rgb(95, 187, 64);
+.Navi{
+  background-color: rgba(247, 241, 241, 0.589);
   padding: 20px;
   font-size: 20px;
-  color: aliceblue;
   font-weight: bold;
+  box-shadow: 0px 0.5px 4px 0px rgba(141, 132, 132, 0.5);
+  height: 24px;
 }
 
-.listItem{
-  margin:-1px auto;
-  padding: 10px;
-  width: 300px;
-  min-height: 25px;
-  border: solid 1px;
+.wrapper{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+}
+
+.Navi a{
+  text-decoration-line: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.Navi a:hover{
+  opacity: 0.6;
+  margin-top: -1px;
+}
+
+.title{
+  text-align: center;
+}
+
+.threadContainer{
+  padding: 0px;
+}
+
+.threadItem{
+  padding: 0 1em;
+  margin: 1em auto;
+  color: #5d627b;
+  background: white;
+  border-left: solid 5px rgb(175, 175, 232);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
   list-style-type: none;
+  max-width: 350px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 0.3rem;
+}
+
+.newThreadTitle{
+  text-align: center;
+}
+
+.form{
+  text-align: center;
+}
+
+.textBox{
+  width: 350px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border-color: black;
+  transition: 0.2s;
+}
+
+.textBox:focus{
+  width: 350px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border-color: rgb(85, 85, 217);
+}
+
+.button{
+  width: 200px;
+  margin-top: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.4s ease-out;
+  color: black;
+}
+
+
+.button:hover{
+  color: white;
+  background: rgb(85, 85, 217);
 }
