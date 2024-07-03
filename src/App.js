@@ -1,33 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import './App.css';
-import Header from './Header';
+// import Header from './Header';
+import  Home  from "./components/Home.jsx";
+import  NewThread  from "./components/NewThread.jsx";
 
 function App() {
+
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-
-    const fetchPosts = async () => {
-      const response = await fetch('https://railway.bulletinboard.techtrain.dev/threads');
-      const data = await response.json();
-      setPosts(data)
-      console.log(data);
-    };
-
-    fetchPosts();
-  },[]);
-
   return (
-    <>
-      <Header/>
-      <ul className = "listBox">
-        {posts.map(post => (
-          <li key={post.id} className ="listItem">
-              {post.title}
-          </li>
-        ))}
-      </ul>
-    </>
+    <BrowserRouter>
+      <div className="Navi">
+        <Link to="/">Home</Link>
+        <Link to="/newthread">New Thread</Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<Home posts={posts} setPosts={setPosts}/>} />
+        <Route path="/newthread" element={<NewThread posts={posts} setPosts={setPosts}/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
