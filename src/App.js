@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
 
     const fetchPosts = async () => {
-      const response = await fetch('https://railway.bulletinboard.techtrain.dev/threads?offset=1');
+      const response = await fetch('https://railway.bulletinboard.techtrain.dev/threads');
       const data = await response.json();
       setPosts(data)
       console.log(data);
