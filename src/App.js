@@ -1,25 +1,26 @@
+import './App.css';
 import { useState } from 'react';
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import './App.css';
-// import Header from './Header';
 import  Home  from "./components/Home.jsx";
 import  NewThread  from "./components/NewThread.jsx";
+import ThreadPosts from './components/ThreadPosts.jsx';
 
 function App() {
 
-  const [posts, setPosts] = useState([]);
+  const [threads, setThreads] = useState([]);
 
   return (
     <BrowserRouter>
-      <div className="Navi">
+      <nav className="Navi">
         <div className="wrapper">
           <Link to="/">Home</Link>
           <Link to="/threads/new">New Thread</Link>
         </div>
-      </div>
+      </nav>
       <Routes>
-        <Route path="/" element={<Home posts={posts} setPosts={setPosts}/>} />
-        <Route path="/threads/new" element={<NewThread posts={posts} setPosts={setPosts}/>} />
+        <Route path="/" element={<Home threads={threads} setThreads={setThreads}/>} />
+        <Route path="/threads/new" element={<NewThread threads={threads} setThreads={setThreads}/>} />
+        <Route path="/threads/:thread_id" element={<ThreadPosts threads={threads} setThreads={setThreads}/>} />
       </Routes>
     </BrowserRouter>
   );

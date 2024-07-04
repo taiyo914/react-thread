@@ -17,12 +17,13 @@
 .Navi a{
   text-decoration-line: none;
   color: black;
-  transition: 0.3s;
+  transition: 0.2s ease-in-out;
 }
 
 .Navi a:hover{
   opacity: 0.6;
-  margin-top: -1px;
+  border-bottom: solid 0.5px;
+  transform: scale(1.03, 1.03);
 }
 
 .title{
@@ -34,9 +35,8 @@
 }
 
 .threadItem{
-  padding: 0 1em;
+  padding: 10px 1em;
   margin: 1em auto;
-  color: #5d627b;
   background: white;
   border-left: solid 5px rgb(175, 175, 232);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
@@ -44,10 +44,18 @@
   max-width: 350px;
   font-size: 1.3rem;
   font-weight: bold;
-  min-height: 50px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   border-radius: 0.3rem;
+  text-decoration: none;
+  color: black;
+  transition: 0.2s ease-out; 
+}
+
+.threadItem:hover{
+  opacity: 0.7;
+  box-shadow: 2px 3px 5px rgb(103, 103, 103);
 }
 
 .newThreadTitle{
@@ -64,7 +72,7 @@
   border-radius: 5px;
   font-size: 16px;
   border-color: black;
-  transition: 0.2s;
+  transition: 0.2s ease-out; 
 }
 
 .textBox:focus{
@@ -90,4 +98,26 @@
 .button:hover{
   color: white;
   background: rgb(85, 85, 217);
+}
+
+.center{
+  text-align: center;
+}
+
+
+
+.threadsContainer{
+  max-width: 510px;
+  margin: 0px auto;
+  padding:0px 10px;
+}
+
+.threadTitle{
+  margin: 0px 0px;
+}
+
+.smallThreadTitle{
+  margin: 20px auto 5px ;
+  padding-left: 5px;
+  font-weight: 400;
 }

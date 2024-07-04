@@ -1,26 +1,29 @@
 import { useEffect } from "react";
-const Home = ({posts, setPosts}) => {
+import { Link } from "react-router-dom";
+const Home = ({threads, setThreads}) => {
 
   useEffect(() => {
 
     const fetchPosts = async () => {
       const response = await fetch('https://railway.bulletinboard.techtrain.dev/threads');
       const data = await response.json();
-      setPosts(data)
+      setThreads(data)
       //console.log(data) //ちゃんとdataが取得できたか確認用
     };
 
     fetchPosts();
-  },[setPosts]); //依存配列はなくても大丈夫だけどなんか警告でてきたから一応入れといた。
+  },[setThreads]); //依存配列はなくても大丈夫だけどなんか警告でてきたから一応入れといた。
 
   return (
     <>
     <h1 className="title">Thraeds</h1>
     <ul className = "threadContainer">
-      {posts.map(post => (
-        <li key={post.id} className ="threadItem">
-            {post.title}
-        </li>
+      {threads.map(thread => (
+        <Link to = {`/threads/${thread.id}`} key={thread.id} className ="threadItem">
+          <li>
+              {thread.title}
+          </li>
+        </Link>
       ))}
     </ul>
     </>
