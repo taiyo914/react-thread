@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ThreadPosts = ({threads}) => {
@@ -9,7 +9,7 @@ const ThreadPosts = ({threads}) => {
   const [isNextDisabled, setIsNextDisabled] = useState(false);
 
   //offsetを指定するとそこから10個のコメントを取得し、それを返す関数
-  const fetchPosts = async (newOffset) => {
+  const fetchPosts = useCallback(async (newOffset) => {
     try {
       const response = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${thread_id}/posts?offset=${newOffset}`);
       const data = await response.json();
@@ -18,7 +18,7 @@ const ThreadPosts = ({threads}) => {
       console.error('Error fetching posts:', error);
       return [];
     }
-  };
+  },[thread_id]);
 
   //初回レンダリング時のコメントの取得
   useEffect(() => {
@@ -31,7 +31,7 @@ const ThreadPosts = ({threads}) => {
       setIsNextDisabled(nextPosts.length === 0);
     };
     loadPosts();
-  }, []);
+  }, [fetchPosts]);
 
   //新しい投稿をPOSTし、最新の状態を再び取得して表示させる関数
   const handleNewPostSubmit = async (event) => {
