@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-const NewThread = ({posts, setPosts}) => {
+const NewThread = ({threads, setThreads}) => {
 
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const NewThread = ({posts, setPosts}) => {
 
       if (response.ok) {
         const createdThread = await response.json();
-        setPosts([...posts, createdThread]); 
+        setThreads([...threads, createdThread]); 
         navigate('/'); //ホーム画面に遷移する
       } else {
         console.error('Failed to create thread');

@@ -6,7 +6,7 @@ const ThreadPosts = ({threads}) => {
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
   const [newPost, setNewPost] = useState('');
-  const [isNextDisabled, setIsNextDisabled] = useState(false);
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
 
   //offsetを指定するとそこから10個のコメントを取得し、それを返す関数
   const fetchPosts = useCallback(async (newOffset) => {
